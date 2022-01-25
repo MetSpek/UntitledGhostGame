@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/LightMaps/light.png" type="Texture" id=1]
+[ext_resource path="res://World/Objects/Lights/LightSourceTemplate.gd" type="Script" id=2]
+
+[node name="LightSourceTemplate" type="Light2D" groups=["LightSource"]]
+visible = false
+texture = ExtResource( 1 )
+energy = 0.9
+script = ExtResource( 2 )
