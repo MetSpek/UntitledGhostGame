@@ -87,6 +87,7 @@ Inventory_Down={
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Interacting"
 2d_physics/layer_3="World"
+2d_physics/layer_4="Ghost"
 
 [physics]
 

@@ -149,7 +149,13 @@ func pickup_item(object):
 			closest_interaction = null
 			object.queue_free()
 	else:
-		print("slot not empty")
+		for i in GlobalStats.inventory.size():
+			if GlobalStats.inventory[i] == null:
+				if object.has_method("pickup"):
+					object.pickup(i)
+					closest_interaction = null
+					object.queue_free()
+					return
 
 func drop_object():
 	if currently_holding != null:
@@ -171,7 +177,11 @@ func use_item(item):
 #DAMAGE
 func get_damage(damage):
 	hit_points = Damage.apply_damage(hit_points, damage)
+	check_if_dead()
 
+func check_if_dead():
+	if hit_points <= 0:
+		print("you dead mofo")
 
 
 

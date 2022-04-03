@@ -7,13 +7,20 @@
 
 [node name="LevelTemplate" type="YSort"]
 
+[node name="Navigation2D" type="Navigation2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="Navigation2D"]
+format = 1
+
+[node name="Destinations" type="Node" parent="Navigation2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
 [node name="Darkness" type="CanvasModulate" parent="."]
 color = Color( 0.0313726, 0.0313726, 0.0313726, 1 )
 
 [node name="PlayerCharacter" parent="." instance=ExtResource( 1 )]
-
-[node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 2 )
 
 [node name="LightSwitches" type="Node2D" parent="."]
 
@@ -22,6 +29,9 @@ texture = ExtResource( 2 )
 [node name="Props" type="Node2D" parent="."]
 
 [node name="Salt" parent="Props" instance=ExtResource( 4 )]
+position = Vector2( 147, 4 )
+
+[node name="Salt2" parent="Props" instance=ExtResource( 4 )]
 position = Vector2( 147, 4 )
 
 [node name="UI" parent="." instance=ExtResource( 3 )]
