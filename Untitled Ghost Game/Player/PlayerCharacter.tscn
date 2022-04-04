@@ -74,7 +74,7 @@ height = 22.0
 [sub_resource type="Animation" id=9]
 resource_name = "Death"
 tracks/0/type = "value"
-tracks/0/path = NodePath("PlayerAnimation:visible")
+tracks/0/path = NodePath("Flashlight:enabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -86,28 +86,28 @@ tracks/0/keys = {
 "values": [ true, false ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Flashlight:enabled")
+tracks/1/path = NodePath("Particles2D:emitting")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true, false ]
+"values": [ true ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Particles2D:emitting")
+tracks/2/path = NodePath("PlayerAnimation:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.2 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ true, false ]
 }
 
 [sub_resource type="Image" id=15]
@@ -164,7 +164,7 @@ script = ExtResource( 2 )
 scale = Vector2( 3, 3 )
 z_index = 1
 frames = SubResource( 3 )
-animation = "idle"
+animation = "Ghost"
 
 [node name="Flashlight" type="Light2D" parent="."]
 show_behind_parent = true

@@ -10,7 +10,6 @@
 [node name="LevelTemplate" type="YSort"]
 
 [node name="Darkness" type="CanvasModulate" parent="."]
-visible = false
 color = Color( 0.0313726, 0.0313726, 0.0313726, 1 )
 
 [node name="Navigation2D" type="Navigation2D" parent="."]
@@ -48,9 +47,7 @@ anchor_bottom = 1.0
 [node name="Salt" parent="Props" instance=ExtResource( 4 )]
 position = Vector2( 147, 4 )
 
-[node name="Salt2" parent="Props" instance=ExtResource( 4 )]
-position = Vector2( 147, 4 )
-
 [node name="GhostTemplate" parent="." instance=ExtResource( 5 )]
 position = Vector2( 45, -9 )
 hunting = true
+attack_damage = 0

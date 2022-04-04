@@ -19,6 +19,28 @@ export var hit_points = 100
 var player
 var velocity
 
+#INTERACTING
+export var interacting_motion_sensor = false
+export var interacting_salt = false
+export var interacting_emf = false
+export var interacting_bell = false
+export var interacting_uv = false
+export var interacting_blessed_book = false
+export var interacting_blessed_water = false
+export var interacting_blessed_salt = false
+export var interacting_blessed_crystal = false
+export var cursed_witch_finger = false
+export var cursed_doll = false
+export var interacting_pistol = false
+export var interacting_smg = false
+export var interacting_rifle = false
+export var interacting_shotgun = false
+export var interacting_bullet_standard = false
+export var interacting_bullet_silver = false
+export var interacting_bullet_salted = false
+export var interacting_bullet_holy = false
+
+
 func _ready():
 	player = get_node("/root").find_node("PlayerCharacter", true, false)
 	randomize()
@@ -108,6 +130,12 @@ func stop_hunt():
 	hunting = false
 	$Collision.disabled = true
 	print($Collision.disabled)
+
+#INTERACTING
+func interact_with_salt():
+	print("je moeder")
+
+
 
 func get_damage(damage_amount):
 	hit_points -= damage_amount

@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+var item = load("res://Player/PlayerGhost.tscn")
+
 #STATS
 var hit_points = 20
 
@@ -23,12 +25,12 @@ func _ready():
 	get_tree().call_group("UI", "check", item_slot + 1)
 
 func _physics_process(delta):
-	if hit_points > 0:
-		look_at_cursor()
-		get_input()
-		animate()
-		choose_closest_object(interacting)
-		velocity = move_and_slide(velocity)
+	choose_closest_object(interacting)
+	look_at_cursor()
+	get_input()
+	animate()	
+	velocity = move_and_slide(velocity)
+
 
 
 func _unhandled_input(event):
@@ -182,7 +184,10 @@ func get_damage(damage):
 
 func check_if_dead():
 	if hit_points <= 0:
+		var ghost_instance = item.instance()
 		$AnimationPlayer.play("Death")
+		ghost_instance.global_position = global_position
+		get_tree().get_root().add_child(ghost_instance)
 
 
 

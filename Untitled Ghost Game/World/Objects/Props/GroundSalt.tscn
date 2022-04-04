@@ -1,12 +1,21 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/Sprites/World/Props/SaltGround.png" type="Texture" id=1]
+[ext_resource path="res://World/Objects/Props/GroundSalt.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 8.0
 
 [node name="GroundSalt" type="StaticBody2D"]
+collision_layer = 32
+collision_mask = 8
+script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -11 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 1 )
 
@@ -14,3 +23,12 @@ texture = ExtResource( 1 )
 visible = false
 shape = SubResource( 1 )
 disabled = true
+
+[node name="InteractingRange" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractingRange"]
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="InteractingRange" to="." method="_on_InteractingRange_body_entered"]
