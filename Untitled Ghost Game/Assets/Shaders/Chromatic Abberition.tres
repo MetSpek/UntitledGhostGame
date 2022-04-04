@@ -1,0 +1,20 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=5]
+code = "shader_type canvas_item;
+
+uniform float ca_strength = 20.0;
+
+void fragment() {
+	vec2 ca_offset = vec2(ca_strength, 0.0) * SCREEN_PIXEL_SIZE;
+	
+	float red = texture(SCREEN_TEXTURE, SCREEN_UV - ca_offset).r;
+	float green = texture(SCREEN_TEXTURE, SCREEN_UV).g;
+	float blue = texture(SCREEN_TEXTURE, SCREEN_UV + ca_offset).b;
+	
+	COLOR = vec4(red, green, blue, 1.0);
+}"
+
+[resource]
+shader = SubResource( 5 )
+shader_param/ca_strength = 0.0

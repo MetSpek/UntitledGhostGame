@@ -23,11 +23,12 @@ func _ready():
 	get_tree().call_group("UI", "check", item_slot + 1)
 
 func _physics_process(delta):
-	look_at_cursor()
-	get_input()
-	animate()
-	choose_closest_object(interacting)
-	velocity = move_and_slide(velocity)
+	if hit_points > 0:
+		look_at_cursor()
+		get_input()
+		animate()
+		choose_closest_object(interacting)
+		velocity = move_and_slide(velocity)
 
 
 func _unhandled_input(event):
@@ -56,7 +57,7 @@ func look_at_cursor():
 	if get_local_mouse_position().y < 0:
 		$Flashlight.range_z_max = 1
 	else:
-		$Flashlight.range_z_max = 100
+		$Flashlight.range_z_max = 3
 
 func get_input():
 	velocity = Vector2()
@@ -181,7 +182,7 @@ func get_damage(damage):
 
 func check_if_dead():
 	if hit_points <= 0:
-		print("you dead mofo")
+		$AnimationPlayer.play("Death")
 
 
 

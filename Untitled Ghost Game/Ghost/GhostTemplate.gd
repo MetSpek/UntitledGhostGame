@@ -109,7 +109,6 @@ func stop_hunt():
 	$Collision.disabled = true
 	print($Collision.disabled)
 
-# DAMAGED
 func get_damage(damage_amount):
 	hit_points -= damage_amount
 	check_if_dead()
