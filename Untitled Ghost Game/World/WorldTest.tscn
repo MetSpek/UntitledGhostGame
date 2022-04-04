@@ -9,9 +9,6 @@
 
 [node name="LevelTemplate" type="YSort"]
 
-[node name="Darkness" type="CanvasModulate" parent="."]
-color = Color( 0.0313726, 0.0313726, 0.0313726, 1 )
-
 [node name="Navigation2D" type="Navigation2D" parent="."]
 
 [node name="TileMap" type="TileMap" parent="Navigation2D"]
@@ -21,6 +18,9 @@ format = 1
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
+
+[node name="Darkness" type="CanvasModulate" parent="."]
+color = Color( 0.0313726, 0.0313726, 0.0313726, 1 )
 
 [node name="PlayerCharacter" parent="." instance=ExtResource( 1 )]
 
