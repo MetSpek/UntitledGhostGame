@@ -25,11 +25,12 @@ func _ready():
 	get_tree().call_group("UI", "check", item_slot + 1)
 
 func _physics_process(delta):
-	choose_closest_object(interacting)
-	look_at_cursor()
-	get_input()
-	animate()	
-	velocity = move_and_slide(velocity)
+	if hit_points > 0:
+		choose_closest_object(interacting)
+		look_at_cursor()
+		get_input()
+		animate()	
+		velocity = move_and_slide(velocity)
 
 
 
@@ -56,10 +57,10 @@ func look_at_cursor():
 		$PlayerAnimation.flip_h = true
 	else:
 		$PlayerAnimation.flip_h = false
-	if get_local_mouse_position().y < 0:
-		$Flashlight.range_z_max = 1
-	else:
-		$Flashlight.range_z_max = 3
+#	if get_local_mouse_position().y < 0:
+#		$Flashlight.range_z_max = 0
+#	else:
+#		$Flashlight.range_z_max = 1
 
 func get_input():
 	velocity = Vector2()
@@ -187,7 +188,10 @@ func check_if_dead():
 		var ghost_instance = item.instance()
 		$AnimationPlayer.play("Death")
 		ghost_instance.global_position = global_position
-		get_tree().get_root().add_child(ghost_instance)
+		get_tree().get_root().get_child(2).add_child(ghost_instance)
+		$Hitbox.disabled = true
+		$Interacting_Range/Interacting.disabled = true
+		
 
 
 
