@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://StairsTeleportExit.gd" type="Script" id=1]
+
+[node name="StairsTeleportExit" type="Position2D" groups=["Stairs"]]
+script = ExtResource( 1 )

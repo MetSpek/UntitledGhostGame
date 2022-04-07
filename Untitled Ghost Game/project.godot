@@ -93,6 +93,7 @@ Inventory_Down={
 2d_physics/layer_4="Ghost"
 2d_physics/layer_5="PlayerGhost"
 2d_physics/layer_6="GroundItem"
+2d_physics/layer_7="Stairs"
 
 [physics]
 

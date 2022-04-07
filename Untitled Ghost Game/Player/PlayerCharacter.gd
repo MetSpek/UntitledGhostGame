@@ -189,6 +189,7 @@ func check_if_dead():
 		$AnimationPlayer.play("Death")
 		ghost_instance.global_position = global_position
 		get_tree().get_root().get_child(2).add_child(ghost_instance)
+		get_tree().get_root().get_child(2).move_child(ghost_instance, 0)
 		$Hitbox.disabled = true
 		$Interacting_Range/Interacting.disabled = true
 		
