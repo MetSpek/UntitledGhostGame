@@ -1,6 +1,7 @@
-[gd_resource type="Theme" load_steps=6 format=2]
+[gd_resource type="Theme" load_steps=7 format=2]
 
 [ext_resource path="res://Assets/UI/Fonts/Bit.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Assets/UI/Fonts/BitSmall.tres" type="DynamicFont" id=2]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.109804, 0.105882, 0.105882, 1 )
@@ -38,9 +39,12 @@ corner_radius_bottom_left = 5
 
 [resource]
 Button/colors/font_color_disabled = Color( 1, 1, 1, 0.321569 )
-Button/colors/font_color_hover = Color( 1, 1, 1, 1 )
-Button/fonts/font = ExtResource( 1 )
+Button/colors/font_color_hover = Color( 0, 0, 0, 1 )
+Button/fonts/font = ExtResource( 2 )
 Button/styles/disabled = SubResource( 1 )
 Button/styles/hover = SubResource( 2 )
 Button/styles/normal = SubResource( 3 )
 Button/styles/pressed = SubResource( 4 )
+Fonts/fonts/large = ExtResource( 1 )
+Fonts/fonts/normal = ExtResource( 1 )
+Label/fonts/font = ExtResource( 2 )

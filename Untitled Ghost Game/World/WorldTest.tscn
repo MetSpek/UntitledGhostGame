@@ -209,7 +209,6 @@ position = Vector2( -79, 32 )
 
 [node name="GhostTemplate" parent="." instance=ExtResource( 5 )]
 position = Vector2( 25, 41 )
-hunting = true
 attack_damage = 50
 
 [node name="Walls" type="TileMap" parent="."]
