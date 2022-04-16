@@ -31,16 +31,16 @@ func _physics_process(delta):
 		get_input()
 		animate()	
 		velocity = move_and_slide(velocity)
+		if Input.is_action_pressed("Use"):
+			use_item(currently_holding)
 
 
 
 func _unhandled_input(event):
-	if event.is_action_pressed("Use"):
-		use_item(currently_holding)
-#	elif event.is_action_pressed("Reloading"):
-#		print("Reloading weapon")
-	elif event.is_action_pressed("Drop"):
+	if event.is_action_pressed("Drop"):
 		drop_object()
+	elif event.is_action_pressed("Reloading"):
+		reload_weapon(currently_holding)
 	elif event.is_action_pressed("Interact"):
 		interact_with_object(interacting)
 	elif event.is_action_pressed("Flashlight"):
@@ -112,7 +112,7 @@ func choose_closest_object(body):
 			else:
 				if x.get_global_position().distance_to(global_position) < closest_interaction.get_global_position().distance_to(global_position):
 					closest_interaction = x
-		get_tree().call_group("UI", "show_interaction", closest_interaction.name)
+		get_tree().call_group("UI", "show_interaction", closest_interaction.object_name)
 	else:
 		get_tree().call_group("UI", "hide_interaction")
 		closest_interaction = null
@@ -132,17 +132,29 @@ func switch_holding(direction):
 					item_slot -= 1
 				else:
 					item_slot = player_inventory.size() - 1
+				
 		currently_holding = player_inventory[item_slot]
+		
+		if currently_holding.has_method("show_bullets"):
+			currently_holding.show_bullets()
+		else:
+			get_tree().call_group("BulletCount", "hide_bullet_count")
+		
 		show_holding()
 		get_tree().call_group("UI", "check", item_slot + 1)
 		print("Currently holding: " + str(GlobalStats.inventory[item_slot]))
+		
 
 func show_holding():
 	for x in $Inventory.get_children():
 		if x == currently_holding:
 			x.visible = true
+		elif currently_holding == null:
+			get_tree().call_group("BulletCount", "hide_bullet_count")
 		else:
 			x.visible = false
+	
+	
 
 func pickup_item(object):
 	if currently_holding == null:
@@ -164,7 +176,7 @@ func pickup_item(object):
 func drop_object():
 	if currently_holding != null:
 		if currently_holding.has_method("drop"):
-			currently_holding.drop(global_position, item_slot)
+			currently_holding.drop(global_position)
 			player_inventory[item_slot] = null
 			currently_holding = null
 
@@ -177,6 +189,11 @@ func use_item(item):
 	if item:
 		if item.has_method("use"):
 			item.use(global_position)
+
+func reload_weapon(item):
+	if item:
+		if item.has_method("reload"):
+			item.reload()
 
 #DAMAGE
 func get_damage(damage):

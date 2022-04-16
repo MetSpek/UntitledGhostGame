@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/footstep_carpet_000.ogg-539079de286f6c77ca582a17f0a6ecdd.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/Impact/footstep_carpet_000.ogg"
+dest_files=[ "res://.import/footstep_carpet_000.ogg-539079de286f6c77ca582a17f0a6ecdd.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

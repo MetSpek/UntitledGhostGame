@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Theme/Main.tres" type="Theme" id=1]
+[ext_resource path="res://GUI/Bullets.gd" type="Script" id=2]
+
+[node name="Bullets" type="Control" groups=["BulletCount"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="BulletCount" type="Label" parent="."]
+anchor_left = 0.835938
+anchor_top = 0.92
+anchor_right = 0.964844
+anchor_bottom = 0.978333
+text = "[ Bullets ]"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": true
+}

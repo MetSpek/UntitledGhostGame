@@ -1,6 +1,6 @@
 extends Node2D
 var groundsalt = load("res://World/Objects/Props/GroundSalt.tscn")
-var item = load("res://Equipment/Salt.tscn")
+var item = load("res://Equipment/DroppedItems/Location/DroppedSalt.tscn")
 
 
 func use(position):
@@ -16,6 +16,6 @@ func use(position):
 func drop(position, place):
 	var item_instance = item.instance()
 	item_instance.global_position = position
-	get_tree().get_root().get_child(2).get_node("Props").add_child(item_instance)
+	get_tree().get_root().get_node("LevelTemplate").get_node("Props").add_child(item_instance)
 	get_tree().call_group("UI", "remove_logo", place + 1)
 	queue_free()
