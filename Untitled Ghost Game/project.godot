@@ -20,6 +20,7 @@ Damage="*res://Other/Damage.gd"
 GlobalStats="*res://Player/GlobalStats.gd"
 Account="*res://Player/Account.gd"
 ShopUpgrades="*res://Other/ShopUpgrades.gd"
+GlobalGameHandler="*res://Other/GlobalGameHandler.gd"
 
 [display]
 

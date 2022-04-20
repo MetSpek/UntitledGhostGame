@@ -1,33 +1,35 @@
-extends CanvasLayer
+extends Popup
 
 func _ready():
-	get_tree().paused = true
-	set_inventory_items()
 	set_storage_items()
 
+func open_storage():
+	get_tree().paused = true
+	set_inventory_items()
+	popup()
 
 func set_inventory_items():
 	if GlobalStats.inventory[0] != null:
-		$ItemStorage/InventoryContainer/Item1.visible = true
-		$ItemStorage/InventoryContainer/Item1/ItemName.text = str(GlobalStats.inventory[0].item_name)
-		$ItemStorage/InventoryContainer/Item1/Button.connect("pressed", self, "_on_Drop_Button_pressed", [GlobalStats.inventory[0], 0, $ItemStorage/InventoryContainer/Item1])
+		$Control/InventoryContainer/Item1.visible = true
+		$Control/InventoryContainer/Item1/ItemName.text = str(GlobalStats.inventory[0].item_name)
+		$Control/InventoryContainer/Item1/Button.connect("pressed", self, "_on_Drop_Button_pressed", [GlobalStats.inventory[0], 0, $Control/InventoryContainer/Item1])
 		
 	else:
-		$ItemStorage/InventoryContainer/Item1.visible = false
+		$Control/InventoryContainer/Item1.visible = false
 	
 	if GlobalStats.inventory[1] != null:
-		$ItemStorage/InventoryContainer/Item2.visible = true
-		$ItemStorage/InventoryContainer/Item2/ItemName.text = str(GlobalStats.inventory[1].item_name)
-		$ItemStorage/InventoryContainer/Item2/Button.connect("pressed", self, "_on_Drop_Button_pressed", [GlobalStats.inventory[1], 1, $ItemStorage/InventoryContainer/Item2])
+		$Control/InventoryContainer/Item2.visible = true
+		$Control/InventoryContainer/Item2/ItemName.text = str(GlobalStats.inventory[1].item_name)
+		$Control/InventoryContainer/Item2/Button.connect("pressed", self, "_on_Drop_Button_pressed", [GlobalStats.inventory[1], 1, $Control/InventoryContainer/Item2])
 	else:
-		$ItemStorage/InventoryContainer/Item2.visible = false
+		$Control/InventoryContainer/Item2.visible = false
 	
 	if GlobalStats.inventory[2] != null:
-		$ItemStorage/InventoryContainer/Item3.visible = true
-		$ItemStorage/InventoryContainer/Item3/ItemName.text = str(GlobalStats.inventory[2].item_name)
-		$ItemStorage/InventoryContainer/Item3/Button.connect("pressed", self, "_on_Drop_Button_pressed", [GlobalStats.inventory[2], 2, $ItemStorage/InventoryContainer/Item3])
+		$Control/InventoryContainer/Item3.visible = true
+		$Control/InventoryContainer/Item3/ItemName.text = str(GlobalStats.inventory[2].item_name)
+		$Control/InventoryContainer/Item3/Button.connect("pressed", self, "_on_Drop_Button_pressed", [GlobalStats.inventory[2], 2, $Control/InventoryContainer/Item3])
 	else:
-		$ItemStorage/InventoryContainer/Item3.visible = false
+		$Control/InventoryContainer/Item3.visible = false
 
 func set_storage_items():
 	for x in GlobalStats.item_list.size():
@@ -44,7 +46,7 @@ func set_storage_items():
 		item_button.connect("pressed", self, "_on_Button_pressed", [GlobalStats.item_list[x].source, item_node])
 		item_node.add_child(item_name)
 		item_node.add_child(item_button)
-		$ItemStorage/StorageContainer/StorageScrollContainer/ItemContainer.add_child(item_node)
+		$Control/StorageContainer/StorageScrollContainer/ItemContainer.add_child(item_node)
 
 
 func _on_Button_pressed(item, node):
@@ -64,7 +66,7 @@ func add_to_inventory(item, node):
 
 
 func _on_CloseButton_pressed():
-	$ItemStorage.visible = false
+	hide()
 	get_tree().paused = false
 
 
@@ -73,3 +75,10 @@ func _on_Drop_Button_pressed(item, x, container):
 		container.visible = false
 		item.drop(get_tree().get_root().get_node("LevelTemplate").get_node("PlayerCharacter").global_position)
 		GlobalStats.inventory[x] = null
+
+
+func _on_ReloadAmmo_button_up():
+	GlobalStats.bullet_amount = 240
+	get_tree().call_group("BulletCount", "update_bullet_count")
+
+

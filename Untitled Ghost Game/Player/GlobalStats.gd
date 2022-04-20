@@ -28,5 +28,8 @@ var shotgun = {
 var assault = {
 	"name" : "Assault Rifle",
 	"source" : "res://Equipment/Guns/AssaultRifle.tscn"}
+var salt = {
+	"name": "Salt Can",
+	"source": "res://Equipment/SaltCan.tscn"}
 
-var item_list = [pistol, smg, shotgun, assault]
+var item_list = [pistol, smg, shotgun, assault, salt]

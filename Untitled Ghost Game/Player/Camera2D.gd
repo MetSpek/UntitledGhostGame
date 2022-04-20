@@ -1,7 +1,7 @@
 extends Camera2D
 
 # Animate this to increase/decrease/fade the shaking
-var shake_amount = 0.2
+var shake_amount = .1
 var able_to_shake = false
 
 func _process(delta):

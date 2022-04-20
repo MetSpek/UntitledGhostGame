@@ -26,3 +26,8 @@ visible = false
 scale = Vector2( 3, 3 )
 frames = SubResource( 1 )
 animation = "idle"
+
+[node name="SaltTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="SaltTimer" to="." method="_on_SaltTimer_timeout"]

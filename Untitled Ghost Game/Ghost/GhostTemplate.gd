@@ -143,4 +143,4 @@ func get_damage(damage_amount):
 
 func check_if_dead():
 	if hit_points <= 0:
-		print("GHOST IS DEAD AF")
+		queue_free()

@@ -1,7 +1,7 @@
 extends Node
 
 func _on_StartButton_pressed():
-	get_tree().change_scene("res://World/WorldTest.tscn")
+	get_tree().change_scene("res://World/Menus/Level Select.tscn")
 
 
 func _on_OptionsButton_pressed():

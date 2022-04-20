@@ -19,6 +19,7 @@ var item
 var sprite
 
 var can_shoot = true
+var is_reloading = false
 var random = RandomNumberGenerator.new()
 
 func _physics_process(delta):
@@ -37,7 +38,7 @@ func look_at_cursor():
 		$Sprite.z_index = 0
 
 func use(position):
-	if can_shoot and bullet_remaining > 0:
+	if can_shoot and bullet_remaining > 0 and !is_reloading:
 		$GunFire.stream = sound_fire
 		$GunFire.play()
 		can_shoot = false
@@ -60,6 +61,7 @@ func use(position):
 		
 
 func reload():
+	is_reloading = true
 	$GunFire.stream = sound_reload
 	$GunFire.play()
 	get_tree().call_group("BulletCount", "update_bullet_count", bullet_remaining)
@@ -74,6 +76,7 @@ func reload():
 		GlobalStats.bullet_amount -= bullet_remaining
 		print(str(GlobalStats.bullet_amount) + " Bullts Remaining")
 	get_tree().call_group("BulletCount", "update_bullet_count", bullet_remaining)
+	is_reloading = false
 
 func show_bullets():
 	get_tree().call_group("BulletCount", "show_bullet_count")

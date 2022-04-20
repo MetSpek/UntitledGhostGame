@@ -135,10 +135,11 @@ func switch_holding(direction):
 				
 		currently_holding = player_inventory[item_slot]
 		
-		if currently_holding.has_method("show_bullets"):
-			currently_holding.show_bullets()
-		else:
-			get_tree().call_group("BulletCount", "hide_bullet_count")
+		if currently_holding != null:
+			if currently_holding.has_method("show_bullets"):
+				currently_holding.show_bullets()
+			else:
+				get_tree().call_group("BulletCount", "hide_bullet_count")
 		
 		show_holding()
 		get_tree().call_group("UI", "check", item_slot + 1)

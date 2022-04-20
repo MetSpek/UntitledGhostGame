@@ -3,7 +3,7 @@ extends "res://Equipment/Guns/GunTemplate.gd"
 func _ready():
 	item_name = "Submachine Gun"
 	bullet_count = 1
-	bullet_damage_multiplier = 1
+	bullet_damage_multiplier = 5
 	bullet_delay = 0.075
 	bullet_spread = 250
 	clip_size = 25
