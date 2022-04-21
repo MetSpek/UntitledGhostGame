@@ -2,6 +2,7 @@ extends Popup
 
 func _ready():
 	set_storage_items()
+	set_bullet_types()
 
 func open_storage():
 	get_tree().paused = true
@@ -48,6 +49,9 @@ func set_storage_items():
 		item_node.add_child(item_button)
 		$Control/StorageContainer/StorageScrollContainer/ItemContainer.add_child(item_node)
 
+func set_bullet_types():
+	for x in GlobalGameHandler.all_bullet_types:
+		$Control/BulletButton.add_item(x)
 
 func _on_Button_pressed(item, node):
 	add_to_inventory(item, node)
@@ -82,3 +86,7 @@ func _on_ReloadAmmo_button_up():
 	get_tree().call_group("BulletCount", "update_bullet_count")
 
 
+
+
+func _on_BulletButton_item_selected(index):
+	GlobalStats.type_bullet = GlobalGameHandler.all_bullet_types[index]

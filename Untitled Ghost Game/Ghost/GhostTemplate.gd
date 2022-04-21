@@ -137,7 +137,7 @@ func interact_with_salt():
 
 
 
-func get_damage(damage_amount):
+func get_damage(damage_amount, bullet_type):
 	hit_points -= damage_amount
 	check_if_dead()
 

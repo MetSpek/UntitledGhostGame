@@ -5,6 +5,7 @@ extends Node
 var inventory = [null, null, null]
 
 #Bullets
+var type_bullet = "standard"
 var bullet_amount = 240
 var remaining_pistol_bullets = 7
 var remaining_smg_bullets = 25

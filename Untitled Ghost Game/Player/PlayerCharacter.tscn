@@ -28,24 +28,9 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 21 ), ExtResource( 1 ), ExtResource( 7 ), ExtResource( 6 ) ],
+"frames": [ ExtResource( 19 ) ],
 "loop": true,
-"name": "walking",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
-"loop": true,
-"name": "walkingback",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 19 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 16 ) ],
-"loop": true,
-"name": "walkingbackequipped",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 18 ) ],
-"loop": true,
-"name": "idleequipped",
+"name": "idlebackequipped",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 8 ) ],
@@ -53,14 +38,29 @@ animations = [ {
 "name": "idleback",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 19 ) ],
+"frames": [ ExtResource( 21 ), ExtResource( 1 ), ExtResource( 7 ), ExtResource( 6 ) ],
 "loop": true,
-"name": "idlebackequipped",
+"name": "walking",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 18 ), ExtResource( 15 ), ExtResource( 12 ), ExtResource( 17 ) ],
 "loop": true,
 "name": "walkingequipped",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "idleequipped",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "walkingbackequipped",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "walkingback",
 "speed": 5.0
 } ]
 
@@ -221,6 +221,8 @@ process_material = SubResource( 14 )
 current = true
 zoom = Vector2( 0.5, 0.5 )
 script = ExtResource( 3 )
+
+[node name="Sounds" type="AudioStreamPlayer" parent="."]
 
 [connection signal="body_entered" from="Interacting_Range" to="." method="_on_Interacting_Range_body_entered"]
 [connection signal="body_exited" from="Interacting_Range" to="." method="_on_Interacting_Range_body_exited"]
