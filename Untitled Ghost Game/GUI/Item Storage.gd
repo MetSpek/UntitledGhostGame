@@ -90,3 +90,7 @@ func _on_ReloadAmmo_button_up():
 
 func _on_BulletButton_item_selected(index):
 	GlobalStats.type_bullet = GlobalGameHandler.all_bullet_types[index]
+
+
+func _on_ItemStorage_popup_hide():
+	get_tree().paused = false

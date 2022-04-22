@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://World/StairsTeleportEntrance.gd" type="Script" id=1]
 [ext_resource path="res://Assets/TileMaps/Tilesheet.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://World/StairsTeleportExit.tscn" type="PackedScene" id=9]
 [ext_resource path="res://World/Objects/Props/Storage.tscn" type="PackedScene" id=10]
 [ext_resource path="res://World/LevelTemplate.gd" type="Script" id=11]
+[ext_resource path="res://World/Objects/Props/ExitLevel.tscn" type="PackedScene" id=12]
 
 [sub_resource type="OccluderPolygon2D" id=12]
 cull_mode = 2
@@ -210,6 +211,9 @@ script = ExtResource( 11 )
 
 [node name="Storage" parent="Items" instance=ExtResource( 10 )]
 position = Vector2( -24, 231 )
+
+[node name="ExitLevel" parent="Items" instance=ExtResource( 12 )]
+position = Vector2( -104, 244 )
 
 [node name="PlayerCharacter" parent="." instance=ExtResource( 5 )]
 light_mask = 3

@@ -3,6 +3,7 @@ extends Control
 func _ready():
 	add_values_to_account()
 	show_values()
+	GlobalStats._ready()
 
 func show_values():
 	$VBoxContainer/Money/MoneyAmount.text = "$" + str(GlobalGameHandler.accumulated_money)

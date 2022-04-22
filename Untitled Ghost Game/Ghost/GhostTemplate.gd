@@ -16,6 +16,9 @@ export var attack_damage = 10
 export var speed = 100
 export var hit_points = 100
 
+export var money_worth = 100
+export var xp_worth = 100
+
 var player
 var velocity
 
@@ -143,4 +146,6 @@ func get_damage(damage_amount, bullet_type):
 
 func check_if_dead():
 	if hit_points <= 0:
+		GlobalGameHandler.accumulated_xp += xp_worth * GlobalGameHandler.difficulties_in_number[GlobalGameHandler.game_difficulty]
+		GlobalGameHandler.accumulated_money += money_worth * GlobalGameHandler.difficulties_in_number[GlobalGameHandler.game_difficulty]
 		queue_free()

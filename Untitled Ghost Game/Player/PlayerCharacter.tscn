@@ -28,19 +28,24 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 21 ), ExtResource( 1 ), ExtResource( 7 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "walking",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 19 ) ],
 "loop": true,
 "name": "idlebackequipped",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 19 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "walkingbackequipped",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "idleback",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 21 ), ExtResource( 1 ), ExtResource( 7 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "walking",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 18 ), ExtResource( 15 ), ExtResource( 12 ), ExtResource( 17 ) ],
@@ -51,11 +56,6 @@ animations = [ {
 "frames": [ ExtResource( 18 ) ],
 "loop": true,
 "name": "idleequipped",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 19 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 16 ) ],
-"loop": true,
-"name": "walkingbackequipped",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],

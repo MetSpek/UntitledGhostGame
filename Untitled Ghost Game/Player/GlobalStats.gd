@@ -1,36 +1,61 @@
 extends Node
 
-
 #Inventory
-var inventory = [null, null, null]
+var inventory
 
 #Bullets
-var type_bullet = "standard"
-var bullet_amount = 240
-var remaining_pistol_bullets = 7
-var remaining_smg_bullets = 25
-var remaining_shotgun_bullets = 5
-var remaining_assault_bullets = 30
+var type_bullet
+var bullet_amount
+var remaining_pistol_bullets
+var remaining_smg_bullets
+var remaining_shotgun_bullets
+var remaining_assault_bullets
 
 #Equipment
-var salt_usages = 3
+var salt_usages
 
 
 #ITEMS
-var pistol = {
+var pistol
+var smg
+var shotgun
+var assault
+var salt
+
+var item_list
+
+func _ready():
+	#Inventory
+	inventory = [null, null, null]
+
+#Bullets
+	type_bullet = "standard"
+	bullet_amount = 240
+	remaining_pistol_bullets = 7
+	remaining_smg_bullets = 25
+	remaining_shotgun_bullets = 5
+	remaining_assault_bullets = 30
+
+#Equipment
+	salt_usages
+
+
+#ITEMS
+	pistol = {
 	"name" : "Pistol",
 	"source" : "res://Equipment/Guns/Pistol.tscn"}
-var smg = {
+	smg = {
 	"name" : "Submachine Gun",
 	"source" : "res://Equipment/Guns/Smg.tscn"}
-var shotgun = {
+	shotgun = {
 	"name" : "Shotgun",
 	"source" : "res://Equipment/Guns/Shotgun.tscn"}
-var assault = {
+	assault = {
 	"name" : "Assault Rifle",
 	"source" : "res://Equipment/Guns/AssaultRifle.tscn"}
-var salt = {
+	salt = {
 	"name": "Salt Can",
-	"source": "res://Equipment/SaltCan.tscn"}
+	"source": "res://Equipment/Location/SaltCan.tscn"}
 
-var item_list = [pistol, smg, shotgun, assault, salt]
+	item_list = [pistol, smg, shotgun, assault, salt]
+	

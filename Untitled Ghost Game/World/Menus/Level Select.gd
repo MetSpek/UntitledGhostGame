@@ -15,6 +15,5 @@ func set_difficulty_select():
 
 
 func _on_Start_pressed():
-	GlobalGameHandler.game_difficulty = GlobalGameHandler.difficulties[$VBoxContainer/LevelDifficulty/DifficultySelect.get_selected_id()]
-	print(GlobalGameHandler.game_difficulty)
+	GlobalGameHandler.game_difficulty = $VBoxContainer/LevelDifficulty/DifficultySelect.get_selected_id()
 	get_tree().change_scene(GlobalGameHandler.levels[$VBoxContainer/LevelSelect/LevelSelect.get_selected_id()])
