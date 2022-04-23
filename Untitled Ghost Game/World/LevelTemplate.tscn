@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://World/StairsTeleportEntrance.gd" type="Script" id=1]
 [ext_resource path="res://Assets/TileMaps/Tilesheet.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://World/Objects/Props/Storage.tscn" type="PackedScene" id=10]
 [ext_resource path="res://World/LevelTemplate.gd" type="Script" id=11]
 [ext_resource path="res://World/Objects/Props/ExitLevel.tscn" type="PackedScene" id=12]
+[ext_resource path="res://World/Menus/PauseMenu.tscn" type="PackedScene" id=13]
 
 [sub_resource type="OccluderPolygon2D" id=12]
 cull_mode = 2
@@ -289,8 +290,9 @@ mouse_filter = 2
 [node name="UI" parent="." instance=ExtResource( 4 )]
 
 [node name="ItemStorage" parent="UI" instance=ExtResource( 6 )]
-visible = false
 margin_left = -5.0
 margin_top = -6.0
 margin_right = -5.0
 margin_bottom = -6.0
+
+[node name="PauseMenu" parent="." instance=ExtResource( 13 )]

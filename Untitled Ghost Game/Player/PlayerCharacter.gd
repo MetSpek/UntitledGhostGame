@@ -49,6 +49,7 @@ func _unhandled_input(event):
 		switch_holding("up")
 	elif event.is_action_pressed("Inventory_Down"):
 		switch_holding("down")
+	
 
 #MOVEMENT
 func look_at_cursor():

@@ -15,3 +15,10 @@ var accumulated_xp = 0
 var accumulated_money = 0
 
 
+func _unhandled_input(event):
+	if event.is_action_pressed("Pause_Game"):
+			pause_game()
+
+
+func pause_game():
+	get_tree().call_group("PauseMenu", "pause_game")
